@@ -99,70 +99,71 @@ public class Analizador {
 		case 'i':
 			if (nextChar(linha) == 'n') {
 				verificaInt(linha);
-				break;
+
 			} else {
 				formadorIdentificador(linha);
-				break;
+
 			}
+			break;
 		case 'p':
 			if (nextChar(linha) == 'a') {
 				verificaPara(linha);
-				break;
 			} else if (nextChar(linha) == 'r') {
 				verificaPrincipal(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		case 'e':
 			if (nextChar(linha) == 'n') {
 				verificaEnquanto(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
+
 			}
+			break;
+
 		case 'r':
 			if (nextChar(linha) == 'e') {
 				verificaR(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		case 'c':
 			if (nextChar(linha) == 'a') {
 				verificaCaracter(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		case 'v':
 			if (nextChar(linha) == 'a') {
 				verificaVazio(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		case 't':
 			if (nextChar(linha) == 'e') {
 				verificaT(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		case '\'':
 			if (eNumero(nextChar(linha)) || eLetra(nextChar(linha))) {
 				verificaChar(linha);
-				break;
 			} else {
 				System.out.println("erro ao iniciar caractere");
-				break;
 			}
+			break;
+
 		case '"':
 			verificaCadeiaCaracteres(linha);
 			break;
@@ -174,7 +175,6 @@ public class Analizador {
 				formadorNumero(linha);
 			} else if (eLetra(firstLetter)) {
 				formadorIdentificador(linha);
-				break;
 			} else {
 				this.token.erro();
 				// System.out.println("erro lerlinha()");
