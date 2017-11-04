@@ -240,16 +240,13 @@ public class Analizador {
 				if (tevePonto == 1) {
 					this.token.real(novoNumero);
 					novaString(letra, i);
-					break;
 				} else if (tevePonto > 1) {
 					// erro ao criar um numero, foi colocado mais de 2 pontos
 					// System.out.println("Mais de um ponto");
 					this.token.erro();
-					break;
 				} else {
 					this.token.inteiro(novoNumero);
 					novaString(letra, i);
-					break;
 				}
 
 			} else if (eOperador(letra.charAt(i))) {
@@ -257,23 +254,19 @@ public class Analizador {
 				if (tevePonto == 1) {
 					this.token.real(novoNumero);
 					novaString(letra, i);
-					break;
 				} else if (tevePonto > 1) {
 					// erro ao criar um numero, foi colocado mais de 2 pontos
 					// System.out.println("Mais de um ponto");
 					this.token.erro();
-					break;
 				} else {
 					this.token.inteiro(novoNumero);
 					novaString(letra, i);
-					break;
 				}
 			} else {
 				this.token.erro();
 				// System.out.println("erro criar variavel iniciando por
 				// numero");
 				erro = true;
-				break;
 			}
 			i++;
 		}
@@ -301,14 +294,13 @@ public class Analizador {
 		case 'i':
 			if (nextChar(novaLetra) == 'n') {
 				verificaPrincipal2(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -321,14 +313,13 @@ public class Analizador {
 		case 'c':
 			if (nextChar(novaLetra) == 'i') {
 				verificaPrincipal3(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -341,14 +332,13 @@ public class Analizador {
 		case 'p':
 			if (nextChar(novaLetra) == 'a') {
 				verificaPrincipal4(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -362,16 +352,15 @@ public class Analizador {
 			if (nextChar(novaLetra) == ' ' || nextChar(novaLetra) == '¬') {
 				this.token.principal();
 				novaString(linha, 9);
-				break;
 			}
 			if (eOperador(nextChar(novaLetra))) {
 				this.token.principal();
 				novaString(linha, 9);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -384,22 +373,21 @@ public class Analizador {
 		case 'c':
 			if (nextChar(novaLetra) == 'l') {
 				verificaTeclado(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		case 'l':
 			if (nextChar(novaLetra) == 'a') {
 				verificaTela(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -423,7 +411,6 @@ public class Analizador {
 				novaString(linha, 4);
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
 		}
 	}
@@ -437,14 +424,13 @@ public class Analizador {
 		case 'a':
 			if (nextChar(novaLetra) == 'd') {
 				verificaTeclado2(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -458,16 +444,15 @@ public class Analizador {
 			if (nextChar(novaLetra) == ' ' || nextChar(novaLetra) == '¬') {
 				this.token.entradaPadrao();
 				novaString(linha, 7);
-				break;
 			}
 			if (eOperador(nextChar(novaLetra))) {
 				this.token.entradaPadrao();
 				novaString(linha, 7);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -480,14 +465,13 @@ public class Analizador {
 		case 'z':
 			if (nextChar(novaLetra) == 'i') {
 				verificaVazio2(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -501,16 +485,15 @@ public class Analizador {
 			if (nextChar(novaLetra) == ' ' || nextChar(novaLetra) == '¬') {
 				this.token.tipo("vazio");
 				novaString(linha, 5);
-				break;
 			}
 			if (eOperador(nextChar(novaLetra))) {
 				this.token.tipo("vazio");
 				novaString(linha, 5);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -522,14 +505,13 @@ public class Analizador {
 		case 'r':
 			if (nextChar(novaLetra) == 'a') {
 				verificaCaracter2(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -542,14 +524,13 @@ public class Analizador {
 		case 'c':
 			if (nextChar(novaLetra) == 't') {
 				verificaCaracter3(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -562,11 +543,11 @@ public class Analizador {
 		case 'e':
 			if (nextChar(novaLetra) == 'r') {
 				verificaCaracter4(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
 			break;
@@ -591,10 +572,8 @@ public class Analizador {
 			if (eOperador(firstLetter)) {
 				this.token.tipo("caracter");
 				novaString(linha, 8);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
 		}
 	}
@@ -608,22 +587,21 @@ public class Analizador {
 		case 'a':
 			if (nextChar(novaLetra) == 'l') {
 				verificaReal(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		case 't':
 			if (nextChar(novaLetra) == 'o') {
 				vefificaRetornar(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -636,14 +614,13 @@ public class Analizador {
 		case 'r':
 			if (nextChar(novaLetra) == 'n') {
 				vefificaRetornar2(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -656,14 +633,13 @@ public class Analizador {
 		case 'a':
 			if (nextChar(novaLetra) == 'r') {
 				vefificaRetornar3(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -687,7 +663,6 @@ public class Analizador {
 				novaString(linha, 8);
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
 		}
 	}
@@ -711,7 +686,6 @@ public class Analizador {
 				novaString(linha, 4);
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
 		}
 	}
@@ -724,14 +698,13 @@ public class Analizador {
 		case 'q':
 			if (nextChar(novaLetra) == 'u') {
 				verificaEnquanto2(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -743,14 +716,13 @@ public class Analizador {
 		case 'a':
 			if (nextChar(novaLetra) == 'n') {
 				verificaEnquanto3(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -763,14 +735,13 @@ public class Analizador {
 		case 't':
 			if (nextChar(novaLetra) == 'o') {
 				verificaEnquanto4(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -794,8 +765,6 @@ public class Analizador {
 				novaString(linha, 8);
 			} else {
 				formadorIdentificador(linha);
-				break;
-				// System.out.println(nextChar("erro enquanto4"));
 			}
 		}
 	}
@@ -808,11 +777,11 @@ public class Analizador {
 		case 'r':
 			if (nextChar(novaLetra) == 'a') {
 				verificaPara2(linha);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
 			// tenta ver se é um operador
@@ -838,16 +807,12 @@ public class Analizador {
 				break;
 			} else if (eOperador(novaLetra.charAt(i)) && !teveVariavel) {
 				novaString(novaLetra, i);
-				break;
 			} else if (novaLetra.charAt(i) == ' ') {
 				this.token.identificador(novaVariavel);
 				novaString(novaLetra, i);
 				teveEspaco = true;
-				break;
 			} else {
 				this.token.erro();
-				// System.out.println("erro formadorIdentificador");
-				break;
 			}
 			i++;
 		}
@@ -875,7 +840,6 @@ public class Analizador {
 				novaString(linha, 4);
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
 		}
 	}
@@ -889,16 +853,15 @@ public class Analizador {
 			if (nextChar(novaLetra) == ' ' || nextChar(novaLetra) == '¬') {
 				this.token.tipo("int");
 				novaString(linha, 3);
-				break;
 			}
 			if (eOperador(nextChar(novaLetra))) {
 				this.token.tipo("int");
 				novaString(linha, 3);
-				break;
 			}
+			break;
+
 		default:
 			formadorIdentificador(linha);
-			break;
 		}
 	}
 
@@ -920,11 +883,11 @@ public class Analizador {
 			// System.out.println(nextChar(linha));
 			if (nextChar(novaLetra) == 'a') {
 				verificaSenao(linha, 4);
-				break;
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
+			break;
+
 		default:
 			// verifica se é atriuto
 			if (eOperador(firstLetter)) {
@@ -932,7 +895,6 @@ public class Analizador {
 				novaString(linha, 2);
 			} else {
 				formadorIdentificador(linha);
-				break;
 			}
 		}
 	}
@@ -1062,13 +1024,12 @@ public class Analizador {
 			if (nextChar(novaLetra) == ' ' || nextChar(novaLetra) == '¬') {
 				this.token.senao();
 				novaString(linha, 5);
-				break;
 			}
 			if (eOperador(nextChar(novaLetra))) {
 				this.token.senao();
 				novaString(linha, 5);
-				break;
-			}
+			}				break;
+
 		default:
 			// verifica se é atriuto
 			if (eOperador(firstLetter)) {
@@ -1076,8 +1037,8 @@ public class Analizador {
 				novaString(linha, 4);
 			} else {
 				formadorIdentificador(linha);
-				break;
-			}
+			}				break;
+
 		}
 	}
 
