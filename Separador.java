@@ -1,16 +1,17 @@
 package br.com.analizador;
 
-import java.util.ArrayList;
-
 public class Separador {
-	ArrayList<String> lista = new ArrayList<>();
-	ArrayList<String> listaAspas = new ArrayList<>();
-	public boolean vazio = false; 
 
-	// procura se há comentario
+	public boolean vazio = false;
+
+	// procura se há comentario do tipo que ocupa apenas uma linha
 	public String procuraComentario(String linha) {
-		int limitador = linha.length();
-		String retorno = linha;
+		// método recebe como parametro uma linha
+
+		int limitador = linha.length(); // analiza o tamanho em caracteres da
+										// linha
+		String retorno = linha; // recebe o valor da linha
+
 		// abaixo escaneia a palavra para procurar por comentario linha
 		for (int i = 0; i < linha.length(); i++) {
 			// procura se determinado caracter é uma barra e esse caracter não é
@@ -22,27 +23,35 @@ public class Separador {
 					// ler string ate comentario e eviar para linha novamente
 					limitador = i + 1;
 
-				} else {
-					// não há um comentario linha
 				}
 			}
 		}
-		// se o programa entende que fou encontrado comentarios, então executa o
-		// codigo abaixo
+		// se o programa entende que foi encontrado comentarios, então executa o
+		// codigo abaixo.
+
+		// explicação: encontrar um comentário do tip // em uma linha iplica que
+		// tudo que houver depois de será comentário de não deverá ser analidado
+		// pelo analizador léxico
+
 		if (limitador < linha.length()) {
 			retorno = "";
-			// abaixo armazena a palavra na string retorno
+			// abaixo armazena a palavra na string retorno, ou seja, palavras
+			// que estavam antes do cometário, se houver
+			// isso indica que elas são codigos q devem ser passados a frente
+			// continuando sendo analizados pelo analizador lexico
 			for (int i = 0; i <= limitador; i++) {
 				retorno += linha.charAt(i);
 			}
 		}
 		return retorno;
 	}
+	
+	/*** 24/11/2017 ***/
 
 	// metodo abaixo elimina espaço em branco no começo de string
 	public String eliminaEspacoInicio(String linha) {
 		int limitador = linha.length();
-		if(limitador == 0){
+		if (limitador == 0) {
 			this.vazio = true;
 			return linha;
 		}
@@ -67,7 +76,7 @@ public class Separador {
 
 	// abaixo elimina espaço em branco no final da string
 	public String eliminaEspacoFim(String linha) {
-		if(linha.length() == 0){
+		if (linha.length() == 0) {
 			this.vazio = true;
 			return linha;
 		}

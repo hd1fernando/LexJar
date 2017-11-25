@@ -1028,7 +1028,8 @@ public class Analizador {
 			if (eOperador(nextChar(novaLetra))) {
 				this.token.senao();
 				novaString(linha, 5);
-			}				break;
+			}
+			break;
 
 		default:
 			// verifica se é atriuto
@@ -1037,7 +1038,8 @@ public class Analizador {
 				novaString(linha, 4);
 			} else {
 				formadorIdentificador(linha);
-			}				break;
+			}
+			break;
 
 		}
 	}
