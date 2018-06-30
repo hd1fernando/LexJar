@@ -2,8 +2,8 @@ Analizador Léxico Java
 -------------------------------------------
 Este é um simples Analisador Léxico criado para a disciplina de Paradigmas de Linguagem de programação.
 
-Este Analisador Léxico lê um programa fonte a partir de um arquivo com extensão ".cpt" (C português).
-O arquivo de saída é gravado em um arquivo texto comm extensão ".ctk" (C tokens).
+Este Analisador Léxico, escrito em Java, lê um programa fonte a partir de um arquivo com extensão ".cpt" (C português).
+E gera um arquivo de saída gravado com a extensão ".ctk" (C tokens).
 
 O Analisador Léxico reconhece os tokens apresentados na tabela abaixo
 
