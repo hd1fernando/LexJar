@@ -6,6 +6,6 @@ O arquivo de saída é gravado em um arquivo texto comm extensão ".ctk" (C toke
 O Analisador Léxico reconhece os tokens apresentados na tabela abaixo
 
 IDENTIFICADOR | TOKEN | LEXEMA
--------------------------------
+--------------|-------|--------
 1| IDENTIFICADOR |
 2| INTEIRO |
