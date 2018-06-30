@@ -46,6 +46,8 @@ IDENTIFICADOR | TOKEN | LEXEMA
 
 Exemplos de programas a serem reconhecidos:
 
+Programa I:
+
 ```sh
 vazio principal () {
   int a, b;
@@ -57,5 +59,58 @@ vazio principal () {
     tela <- “Maior: ” + a;
   senao
     tela <- “Maior: ” + b;
+}
+```
+
+Programa II:
+```sh
+/* Programa para identificar o maior
+dentre dois números.
+*/
+vazio principal () {
+  int a, b;
+  tela <- “Informe o primeiro número:”;
+  a <- teclado;
+  tela <- “Informe o segundo número:”;
+  b <- teclado;
+  tela <- “Maior: ” + maior (a, b);
+}
+int maior (int a, int b) {
+  se (a > b)
+    retornar (a);
+  senao
+    retornar (b);
+}
+```
+Programa III: 
+```sh
+vazio principal () {
+  int num;
+  tela <- “Informe o número:”;
+  num <- teclado;
+  pares (num);
+}
+//Procedimento para identificar números pares menores que n.
+vazio pares (int n) {
+  int i <- 0;
+  enquanto (i < n)
+    se (i % 2 = 0)
+      tela <- i;
+}
+```
+Programa IV:
+```sh
+vazio principal () {
+  int num;
+  tela <- “Informe o número:”;
+  num <- teclado;
+  pares (num);
+}
+
+vazio pares (int n) {
+  int i ;
+  para (i <- 0; i < n; i <- i + 1)
+    se (i % 2 = 0)
+      tela <- i;
 }
 ```
