@@ -1,3 +1,5 @@
+Analizador Léxico Java
+-------------------------------------------
 Este é um simples Analisador Léxico criado para a disciplina de Paradigmas de Linguagem de programação.
 
 Este Analisador Léxico lê um programa fonte a partir de um arquivo com extensão ".cpt" (C português).
