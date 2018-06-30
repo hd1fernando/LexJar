@@ -42,3 +42,20 @@ IDENTIFICADOR | TOKEN | LEXEMA
 33| MENOR_IGUAL| <=
 34| MAIOR| >
 35| MAIOR_IGUAL| >=
+
+
+Exemplos de programas a serem reconhecidos:
+
+```sh
+vazio principal () {
+  int a, b;
+  tela <- “Informe o primeiro número:”;
+  a <- teclado;
+  tela <- “Informe o segundo número:”;
+  b <- teclado;
+  se (a > b)
+    tela <- “Maior: ” + a;
+  senao
+    tela <- “Maior: ” + b;
+}
+```
