@@ -1,92 +1,71 @@
-package br.com.analizador;
+package analisador_lexico;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Inicio {
-	public static void main(String[] args) throws IOException {
-		String  origem = "/home/fernando/analizador/olaMundo.cpt";
-		String destino = "/home/fernando/analizador/saida.ctk";
-		Tokens tokens = new Tokens();
-		
-		// porcura por arquivo no local: ex: /home/usuario/analizador/olamundo.cpt
-		File arquivo = new File(origem);
-		if (!arquivo.exists()) { // procura se aquivo existe
-			System.out.println("Arquivo não encontrado");
-		} else {// se sim, começa a lê-lo
-			FileReader fr = new FileReader(arquivo);
-			BufferedReader br = new BufferedReader(fr);
-			// lê a primeira linha
-			String linha = br.readLine();
-			// int numLinha = 1;
-			Separador separa = new Separador();
-			Analizador analizador = new Analizador();
 
-			// lê enquanto houver linhas para serem lidas
-			while (linha != null) {
+    public static void main(String[] args) {
+        String origem = "src/analisador_lexico/arquivos/olaMundo.cpt";
+        String destino = "src/analisador_lexico/arquivos/saida.ctk";
 
-				// prucora se não houve comenario paragrafo na linha anterior
-				if (analizador.comentarioFim) {
-					// nao houve comentario linha na linha anterior, eu esse é a
-					// primeira linha ou ele ja foi fechado
+        Tokens tokens = new Tokens();
+        Separador separador = new Separador();
+        Analizador analizador = new Analizador();
+        Arquivo arquivo = new Arquivo(origem, destino);
+        ArrayList<String> texto = new ArrayList<>();
 
-					// procura se há comentario na linha e o elimina
-					linha = separa.procuraComentario(linha);
+        try {
+            texto = arquivo.LerArquivo();
 
-					// procura se há espaço no inicio da linha e o elimina
-					linha = separa.eliminaEspacoInicio(linha);
+            // lê enquanto houver linhas para serem lidas
+            for (String linha : texto) {
+                linha = linha.trim();
+                // prucura se não houve comenario paragrafo na linha anterior
+                if (analizador.comentarioFim) {
+                    // nao houve comentário linha na linha anterior, ou essa é a
+                    // primeira linha, ou o comentário já foi fechado
 
-					// procura se há espaço no fim da linha e o elimina
-					if (!separa.vazio)
-						linha = separa.eliminaEspacoFim(linha);
+                    // procura se há comentário na linha e o elimina
+                    linha = separador.procuraComentario(linha);
 
-					// caso a unica linha do programa seja um tab ou espaço nao
-					// ira executar
-					if (!separa.vazio) {
-						if (linha.charAt(0) != ' ' && linha.charAt(0) != '\t')
-							analizador.lerLinha(linha);
-					}
-				} else {
-					analizador.verificaComentarioParagrafo(linha);
-				}
+                    // procura se há espaço no inicio da linha e o elimina
+                    //linha = separador.eliminaEspacoInicio(linha);
+                    // procura se há espaço no fim da linha e o elimina
+                    if (!separador.vazio) {
+                        linha = separador.eliminaEspacoFim(linha);
+                    }
 
-				// quebra uma linha no aquivo de tokens
-				if (!separa.vazio) {
-					if (linha.charAt(0) != ' ' && linha.charAt(0) != '\t')
-						System.out.println(" ");
-					tokens.saida += "\n";
-				}
-				// adiciona false no vazio novamente
-				separa.vazio = false;
+                    // caso a unica linha do programa seja um tab ou espaço nao
+                    // irá executar
+                    if (!separador.vazio) {
+                        if (linha.charAt(0) != ' ' && linha.charAt(0) != '\t') {
+                            analizador.lerLinha(linha);
+                        }
+                    }
+                } else {
+                    analizador.verificaComentarioParagrafo(linha);
+                }
 
-				// le proxima linha
-				linha = br.readLine();
-				// numLinha++;
-			}
-			// fecha arquivo
-			br.close();
-			fr.close();
+                // quebra uma linha no aquivo de tokens
+                if (!separador.vazio) {
+                    if (linha.charAt(0) != ' ' && linha.charAt(0) != '\t') {
+                        System.out.println(" ");
+                    }
+                    tokens.saida += "\n";
+                }
+                // adiciona false no vazio novamente
+                separador.vazio = false;
 
-			// abaixo escreve em um arquivo de saida ex: /home/usuario/analizador/saida.ctk
-			File saida = new File(destino);
-			if (!saida.exists()) {
-				saida.createNewFile();
-			}
-			FileWriter fw = new FileWriter(saida, false);
-			BufferedWriter bw = new BufferedWriter(fw);
-			// escreve no arquivo
-			// System.out.println(tokens.saida);
-			bw.write(tokens.saida);
-			// bw.newLine();
-			// fecha os cursores
-			bw.close();
-			fw.close();
+            }
 
-		}
-	}
+            // abaixo  escreve em um arquivo de saida ex: /home/usuario/analizador/saida.ctk
+            arquivo.EscreverArquivo();
+
+        } catch (IOException ex) {
+            System.err.println(ex.getCause());
+            System.err.println(ex.getMessage());
+        }
+    }
 
 }

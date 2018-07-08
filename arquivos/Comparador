@@ -1,0 +1,11 @@
+< 19 | VAZIO> < 30 | PRINCIPAL> < 17 | INICIO_PARAMETRO> < 18 | FIM_PARAMETRO> < 15 | INICIO_ESCOPO >  
+< 19 | INT> < 1 | a > < 24 | VIRGULA> < 1 | b > < 23 | FIM_COMANDO>  
+< 26 | SAIDA_PADRAO> < 6 | ATRIBUICAO > < 5 | Informe o primeiro número: > < 23 | FIM_COMANDO>  
+< 1 | a > < 6 | ATRIBUICAO > < 25 | ENTRADA_PADRAO> < 23 | FIM_COMANDO> < 1 | a > < 6 | ATRIBUICAO > < 25 | ENTRADA_PADRAO> < 23 | FIM_COMANDO>  
+< 26 | SAIDA_PADRAO> < 6 | ATRIBUICAO > < 5 | Informe o segundo número: > < 23 | FIM_COMANDO>  
+< 1 | b > < 6 | ATRIBUICAO > < 25 | ENTRADA_PADRAO> < 23 | FIM_COMANDO> < 1 | b > < 6 | ATRIBUICAO > < 25 | ENTRADA_PADRAO> < 23 | FIM_COMANDO>  
+< 12 | SE > < 17 | INICIO_PARAMETRO> < 1 | a > < 34 | MAIOR > < 1 | b > < 18 | FIM_PARAMETRO> < 1 | a > < 34 | MAIOR > < 1 | b > < 18 | FIM_PARAMETRO>  
+< 26 | SAIDA_PADRAO> < 6 | ATRIBUICAO > < 5 | Maior:  > < 7 | SOMA > < 1 | a > < 23 | FIM_COMANDO>  
+< 28 | SENAO>  
+< 26 | SAIDA_PADRAO> < 6 | ATRIBUICAO > < 5 | Maior:  > < 7 | SOMA > < 1 | b > < 23 | FIM_COMANDO>  
+< 16 | FIM_ESCOPO >  

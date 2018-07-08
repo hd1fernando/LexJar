@@ -1,0 +1,14 @@
+vazio principal () {
+ int a, b;
+    tela <- “Informe o primeiro número:”;
+  a <- teclado;
+  tela <- “Informe o segundo número:”;
+  b <- teclado;
+  se (a > b)
+    tela <- “Maior: ” + a;
+  senao
+    tela <- “Maior: ” + b;
+}
+/* */
+//comentário
+para
