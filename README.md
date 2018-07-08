@@ -1,7 +1,9 @@
-Este é um simples Analisador Léxico criado para a disciplina de Paradigmas de Linguagem de programação.
+Analizador Léxico Java
+-------------------------------------------
+> This is a simple lexical analyzer make in Java for a college project.
 
-Este Analisador Léxico lê um programa fonte a partir de um arquivo com extensão ".cpt" (C português).
-O arquivo de saída é gravado em um arquivo texto comm extensão ".ctk" (C tokens).
+Este Analisador Léxico, escrito em Java, lê um programa fonte a partir de um arquivo com extensão ".cpt" (C português).
+E gera um arquivo de saída gravado com a extensão ".ctk" (C tokens).
 
 O Analisador Léxico reconhece os tokens apresentados na tabela abaixo
 
@@ -46,7 +48,7 @@ IDENTIFICADOR | TOKEN | LEXEMA
 
 Exemplos de programas a serem reconhecidos:
 
-Programa I:
+**Programa I:**
 
 ```sh
 vazio principal () {
@@ -62,7 +64,7 @@ vazio principal () {
 }
 ```
 
-Programa II:
+**Programa II:**
 ```sh
 /* Programa para identificar o maior
 dentre dois números.
@@ -82,7 +84,7 @@ int maior (int a, int b) {
     retornar (b);
 }
 ```
-Programa III: 
+**Programa III:** 
 ```sh
 vazio principal () {
   int num;
@@ -98,7 +100,7 @@ vazio pares (int n) {
       tela <- i;
 }
 ```
-Programa IV:
+**Programa IV:**
 ```sh
 vazio principal () {
   int num;
